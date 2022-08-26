@@ -97,7 +97,11 @@ kotlin {
     }
 
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting {
+            dependencies {
+                implementation("com.googlecode.libphonenumber:libphonenumber:8.12.54")
+            }
+        }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
