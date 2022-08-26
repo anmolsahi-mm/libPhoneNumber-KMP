@@ -17,5 +17,12 @@ expect object PhoneUtil {
 
     fun isNumberGeographical(number: PhoneNumber): Boolean
 
-    fun isNumberGeographical(number: PhoneNumber, countryCallingCode: Int): Boolean
+    fun isNumberGeographical(phoneNumberType: PhoneNumberType, countryCallingCode: Int): Boolean
+
+    fun isNumberMatch( firstNumber: CharSequence,  secondNumber: CharSequence): MatchType
+
+    fun isNumberMatch( firstNumber: PhoneNumber,  secondNumber: CharSequence): MatchType
+
+    fun isNumberMatch( firstNumber: PhoneNumber,  secondNumber: PhoneNumber): MatchType
+
 }

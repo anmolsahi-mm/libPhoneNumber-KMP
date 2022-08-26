@@ -1,5 +1,3 @@
 package com.mutualmobile.libphonenumber
 
-import cocoapods.libPhoneNumber_iOS.NBEPhoneNumberFormat
-
-actual typealias PhoneNumberFormat = NBEPhoneNumberFormat
+actual enum class PhoneNumberFormat

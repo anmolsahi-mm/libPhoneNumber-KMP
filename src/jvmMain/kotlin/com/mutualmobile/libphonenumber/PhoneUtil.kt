@@ -42,10 +42,22 @@ actual object PhoneUtil {
     }
 
     actual fun isNumberGeographical(
-        number: PhoneNumber,
+        phoneNumberType: PhoneNumberType,
         countryCallingCode: Int
     ): Boolean {
-        return isNumberGeographical(number, countryCallingCode)
+        return instance.isNumberGeographical(phoneNumberType, countryCallingCode)
+    }
+
+    actual fun isNumberMatch(firstNumber: CharSequence, secondNumber: CharSequence): MatchType {
+        return instance.isNumberMatch(firstNumber, secondNumber)
+    }
+
+    actual fun isNumberMatch(firstNumber: PhoneNumber, secondNumber: CharSequence): MatchType {
+        return instance.isNumberMatch(firstNumber, secondNumber)
+    }
+
+    actual fun isNumberMatch(firstNumber: PhoneNumber, secondNumber: PhoneNumber): MatchType {
+        return instance.isNumberMatch(firstNumber, secondNumber)
     }
 
 

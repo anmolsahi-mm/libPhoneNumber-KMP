@@ -6,7 +6,6 @@ actual object PhoneUtil {
 
     actual fun getInstance(context: ApplicationContext): PhoneNumberUtil {
         instance = PhoneNumberUtil.createInstance(context)
-
         return instance
     }
 
@@ -18,10 +17,7 @@ actual object PhoneUtil {
         return instance.isPossibleNumber(number)
     }
 
-    actual fun isPossibleNumberForType(
-        number: PhoneNumber,
-        type: PhoneNumberType
-    ): Boolean {
+    actual fun isPossibleNumberForType(number: PhoneNumber, type: PhoneNumberType): Boolean {
         return instance.isPossibleNumberForType(number, type)
     }
 
@@ -32,10 +28,7 @@ actual object PhoneUtil {
         return instance.isValidNumber(number)
     }
 
-    actual fun isValidNumberForRegion(
-        number: PhoneNumber,
-        countryCode: String
-    ): Boolean {
+    actual fun isValidNumberForRegion(number: PhoneNumber, countryCode: String): Boolean {
         return isValidNumberForRegion(number, countryCode)
     }
 
@@ -43,11 +36,20 @@ actual object PhoneUtil {
         return instance.isNumberGeographical(number)
     }
 
-    actual fun isNumberGeographical(
-        number: PhoneNumber,
-        countryCallingCode: Int
-    ): Boolean {
-        return instance.isNumberGeographical(number, countryCallingCode)
+    actual fun isNumberGeographical(phoneNumberType: PhoneNumberType, countryCallingCode: Int): Boolean {
+        return instance.isNumberGeographical(phoneNumberType, countryCallingCode)
+    }
+
+    actual fun isNumberMatch(firstNumber: CharSequence, secondNumber: CharSequence): MatchType {
+        return instance.isNumberMatch(firstNumber, secondNumber)
+    }
+
+    actual fun isNumberMatch(firstNumber: PhoneNumber, secondNumber: CharSequence): MatchType {
+        return instance.isNumberMatch(firstNumber, secondNumber)
+    }
+
+    actual fun isNumberMatch(firstNumber: PhoneNumber, secondNumber: PhoneNumber): MatchType {
+        return instance.isNumberMatch(firstNumber, secondNumber)
     }
 
 

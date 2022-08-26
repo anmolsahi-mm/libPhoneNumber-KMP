@@ -113,7 +113,11 @@ kotlin {
             }
         }
         val jvmTest by getting
-        val jsMain by getting
+        val jsMain by getting {
+            dependencies {
+                implementation(npm("libphonenumber-js", "1.10.13"))
+            }
+        }
         val jsTest by getting
         val nativeMain by getting
         val nativeTest by getting

@@ -1,5 +1,3 @@
 package com.mutualmobile.libphonenumber
 
-actual enum class Locale{
-
-}
+expect enum class MatchType
