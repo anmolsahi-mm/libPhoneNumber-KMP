@@ -1,5 +1,8 @@
 package com.mutualmobile.libphonenumber
 
+import isPossibleNumber as possibleNumber
+import isValidNumberForRegion as validNumberForRegion
+
 actual object PhoneUtil {
 
     actual fun getInstance(context: ApplicationContext): PhoneNumberUtil {
@@ -7,11 +10,10 @@ actual object PhoneUtil {
     }
 
     actual fun isPossibleNumber(phoneNumber: String, countryCode: String): Boolean {
-        TODO("Not yet implemented")
+        return possibleNumber(phoneNumber)
     }
 
     actual fun isPossibleNumber(number: PhoneNumber): Boolean {
-        TODO("Not yet implemented")
     }
 
     actual fun isPossibleNumberForType(
@@ -33,7 +35,7 @@ actual object PhoneUtil {
         number: PhoneNumber,
         countryCode: String
     ): Boolean {
-        TODO("Not yet implemented")
+        return validNumberForRegion(number, countryCode)
     }
 
     actual fun isNumberGeographical(number: PhoneNumber): Boolean {

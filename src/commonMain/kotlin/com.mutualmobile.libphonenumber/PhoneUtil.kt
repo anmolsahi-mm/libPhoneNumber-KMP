@@ -25,4 +25,13 @@ expect object PhoneUtil {
 
     fun isNumberMatch( firstNumber: PhoneNumber,  secondNumber: PhoneNumber): MatchType
 
+    fun canBeInternationallyDialed(number: PhoneNumber): Boolean
+
+    fun getCountryCodeForRegion(regionCode: String): Int
+
+    fun getPhoneNumberType(number: PhoneNumber): PhoneNumberType
+
+    fun isNANPACountry(regionCode: String): Boolean
+
+    fun isPossibleNumberWithReason(number: PhoneNumber): ValidationResult
 }

@@ -60,5 +60,23 @@ actual object PhoneUtil {
         return instance.isNumberMatch(firstNumber, secondNumber)
     }
 
+    actual fun canBeInternationallyDialed(number: PhoneNumber): Boolean {
+        return instance.canBeInternationallyDialled(number)
+    }
 
+    actual fun getCountryCodeForRegion(regionCode: String): Int {
+        return instance.getCountryCodeForRegion(regionCode)
+    }
+
+    actual fun getPhoneNumberType(number: PhoneNumber): PhoneNumberType {
+        return instance.getNumberType(number)
+    }
+
+    actual fun isNANPACountry(regionCode: String): Boolean {
+        return instance.isNANPACountry(regionCode)
+    }
+
+    actual fun isPossibleNumberWithReason(number: PhoneNumber): ValidationResult {
+        return instance.isPossibleNumberWithReason(number)
+    }
 }

@@ -23,7 +23,15 @@ kotlin {
             useJUnitPlatform()
         }
     }
-    js(BOTH) {
+//    js(BOTH) {
+//        browser {
+//            commonWebpackConfig {
+//                cssSupport.enabled = true
+//            }
+//        }
+//    }
+
+    js(IR) {
         browser {
             commonWebpackConfig {
                 cssSupport.enabled = true
@@ -39,7 +47,7 @@ kotlin {
         else -> throw GradleException("Host OS is not supported in Kotlin/Native.")
     }
 
-    
+
     android()
     iosArm64 {
         binaries {
@@ -115,7 +123,7 @@ kotlin {
         val jvmTest by getting
         val jsMain by getting {
             dependencies {
-                implementation(npm("libphonenumber-js", "1.10.13"))
+                implementation(npm("libphonenumber-js", "1.10.13", generateExternals = true))
             }
         }
         val jsTest by getting

@@ -1,3 +1,3 @@
 package com.mutualmobile.libphonenumber
 
-actual typealias PhoneNumber = String
+expect enum class ValidationResult

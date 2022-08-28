@@ -124,4 +124,56 @@ actual object PhoneUtil {
 
         return geoMobileCountries
     }
+
+    actual fun canBeInternationallyDialed(number: PhoneNumber): Boolean {
+        return instance.canBeInternationallyDialled(number, null)
+    }
+
+    actual fun getCountryCodeForRegion(regionCode: String): Int {
+        return instance.getCountryCodeForRegion(regionCode)?.intValue ?: 0
+    }
+
+    actual fun getPhoneNumberType(number: PhoneNumber): PhoneNumberType {
+        val nbePhoneNumberType =  instance.getNumberType(number)
+        return getPhoneNumberType(nbePhoneNumberType)
+    }
+
+    private fun getPhoneNumberType(nbePhoneNumberType: NBEPhoneNumberType) : PhoneNumberType {
+        return when(nbePhoneNumberType) {
+            NBEPhoneNumberTypeFIXED_LINE -> PhoneNumberType.FIXED_LINE
+            NBEPhoneNumberTypeMOBILE -> PhoneNumberType.MOBILE
+            NBEPhoneNumberTypeFIXED_LINE_OR_MOBILE -> PhoneNumberType.FIXED_LINE_OR_MOBILE
+            NBEPhoneNumberTypeTOLL_FREE -> PhoneNumberType.TOLL_FREE
+            NBEPhoneNumberTypePREMIUM_RATE -> PhoneNumberType.PREMIUM_RATE
+            NBEPhoneNumberTypeSHARED_COST -> PhoneNumberType.SHARED_COST
+            NBEPhoneNumberTypeVOIP -> PhoneNumberType.VOIP
+            NBEPhoneNumberTypePERSONAL_NUMBER -> PhoneNumberType.PERSONAL_NUMBER
+            NBEPhoneNumberTypePAGER -> PhoneNumberType.PAGER
+            NBEPhoneNumberTypeUAN -> PhoneNumberType.UAN
+            NBEPhoneNumberTypeVOICEMAIL -> PhoneNumberType.VOICEMAIL
+            NBEPhoneNumberTypeUNKNOWN -> PhoneNumberType.UNKNOWN
+            else -> PhoneNumberType.UNKNOWN
+        }
+    }
+
+    actual fun isNANPACountry(regionCode: String): Boolean {
+        return instance.isNANPACountry(regionCode)
+    }
+
+    actual fun isPossibleNumberWithReason(number: PhoneNumber): ValidationResult {
+        val nbeValidationResult = instance.isPossibleNumberWithReason(number, null)
+        return getValidationResult(nbeValidationResult)
+    }
+
+    private fun getValidationResult(nbeValidationResult: NBEValidationResult): ValidationResult{
+        return when(nbeValidationResult) {
+            NBEValidationResultIS_POSSIBLE -> ValidationResult.IS_POSSIBLE
+            NBEValidationResultIS_POSSIBLE_LOCAL_ONLY -> ValidationResult.IS_POSSIBLE_LOCAL_ONLY
+            NBEValidationResultINVALID_COUNTRY_CODE -> ValidationResult.INVALID_COUNTRY_CODE
+            NBEValidationResultTOO_LONG -> ValidationResult.TOO_LONG
+            NBEValidationResultTOO_SHORT -> ValidationResult.TOO_SHORT
+            NBEValidationResultINVALID_LENGTH -> ValidationResult.INVALID_LENGTH
+            else -> ValidationResult.UNKNOWN
+        }
+    }
 }
