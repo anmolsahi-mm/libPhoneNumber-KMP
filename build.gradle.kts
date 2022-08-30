@@ -59,18 +59,12 @@ kotlin {
         // Required properties
         // Specify the required Pod version here. Otherwise, the Gradle project version is used.
         version = "1.0"
-        summary = "Some description for a Kotlin/Native module"
-        homepage = "Link to a Kotlin/Native module homepage"
 
         // Optional properties
         // Configure the Pod name here instead of changing the Gradle project name
         name = "MyCocoaPod"
 
         framework {
-            // Required properties
-            // Framework name configuration. Use this property instead of deprecated 'frameworkName'
-            baseName = "MyFramework"
-
             // Optional properties
             // Dynamic framework support
             isStatic = false
@@ -84,10 +78,6 @@ kotlin {
             org.jetbrains.kotlin.gradle.plugin.mpp.NativeBuildType.DEBUG
         xcodeConfigurationToNativeBuildType["CUSTOM_RELEASE"] =
             org.jetbrains.kotlin.gradle.plugin.mpp.NativeBuildType.RELEASE
-
-        pod("AFNetworking") {
-            version = "~> 4.0.1"
-        }
 
         pod("libPhoneNumber-iOS") {
             version = "~> 0.8"

@@ -5,7 +5,7 @@ actual object PhoneUtil {
     @Volatile
     private var instance: PhoneNumberUtil? = null
 
-    actual fun getInstance(context: ApplicationContext) {
+    actual fun initialize(context: ApplicationContext) {
         synchronized(this) {
             if (instance == null) {
                 instance = PhoneNumberUtil.createInstance(context)

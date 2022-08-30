@@ -1,7 +1,7 @@
 package com.mutualmobile.libphonenumber
 
 actual object PhoneUtil {
-    actual fun getInstance(context: ApplicationContext) {
+    actual fun initialize(context: ApplicationContext) {
     }
 
     actual fun isPossibleNumber(phoneNumber: String, countryCode: String): Boolean? {
