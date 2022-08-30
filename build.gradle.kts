@@ -5,7 +5,6 @@ plugins {
     id("kotlin-android-extensions")
 }
 
-
 group = "me.anmolsinghsahi"
 version = "1.0-SNAPSHOT"
 

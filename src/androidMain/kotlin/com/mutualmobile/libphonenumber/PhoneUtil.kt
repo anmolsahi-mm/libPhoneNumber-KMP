@@ -43,7 +43,6 @@ actual object PhoneUtil {
     actual fun isNumberMatch(firstNumber: PhoneNumber, secondNumber: CharSequence): MatchType? =
         instance?.isNumberMatch(firstNumber, secondNumber)
 
-
     actual fun isNumberMatch(firstNumber: PhoneNumber, secondNumber: PhoneNumber): MatchType? =
         instance?.isNumberMatch(firstNumber, secondNumber)
 
