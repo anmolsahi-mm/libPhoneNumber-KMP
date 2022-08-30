@@ -1,5 +1,5 @@
 package com.mutualmobile.libphonenumber
 
-import io.michaelrocks.libphonenumber.android.PhoneNumberUtil
+import io.michaelrocks.libphonenumber.android.PhoneNumberUtil.ValidationResult
 
-actual typealias ValidationResult = PhoneNumberUtil.ValidationResult
+actual typealias ValidationResult = ValidationResult

@@ -1,5 +1,5 @@
 package com.mutualmobile.libphonenumber
 
-import io.michaelrocks.libphonenumber.android.PhoneNumberUtil
+import io.michaelrocks.libphonenumber.android.PhoneNumberUtil.MatchType
 
-actual typealias MatchType = PhoneNumberUtil.MatchType
+actual typealias MatchType = MatchType

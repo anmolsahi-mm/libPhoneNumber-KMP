@@ -1,5 +1,5 @@
 package com.mutualmobile.libphonenumber
 
-import io.michaelrocks.libphonenumber.android.PhoneNumberUtil
+import io.michaelrocks.libphonenumber.android.PhoneNumberUtil.PhoneNumberFormat
 
-actual typealias PhoneNumberFormat = PhoneNumberUtil.PhoneNumberFormat
+actual typealias PhoneNumberFormat = PhoneNumberFormat
