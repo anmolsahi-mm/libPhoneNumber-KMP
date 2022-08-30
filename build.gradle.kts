@@ -1,8 +1,7 @@
 plugins {
     kotlin("multiplatform") version "1.7.10"
     kotlin("native.cocoapods") version "1.7.10"
-    id("com.android.application")
-    id("kotlin-android-extensions")
+    id("com.android.library")
 }
 
 group = "me.anmolsinghsahi"
@@ -140,15 +139,10 @@ kotlin {
 }
 
 android {
-    compileSdkVersion(31)
+    compileSdk = 31
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
-        applicationId = "me.anmolsinghsahi.library"
-        minSdkVersion(24)
-        targetSdkVersion(31)
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        minSdk = 24
+        targetSdk = 31
     }
 }
