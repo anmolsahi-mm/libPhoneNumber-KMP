@@ -1,90 +1,86 @@
 package com.mutualmobile.libphonenumber
 
+import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber
+
 actual object PhoneUtil {
+
+    @Volatile
+    private var instance: PhoneNumberUtil? = null
+
     actual fun initialize(context: ApplicationContext) {
+        synchronized(this) {
+            if (instance == null) {
+                instance = PhoneNumberUtil.getInstance()
+            }
+        }
     }
 
     actual fun isPossibleNumber(phoneNumber: String, countryCode: String): Boolean? {
-        TODO("Not yet implemented")
+        return instance?.isPossibleNumber(phoneNumber, countryCode)
     }
 
-    actual fun isPossibleNumber(number: com.mutualmobile.libphonenumber.PhoneNumber): Boolean? {
-        TODO("Not yet implemented")
+    actual fun isPossibleNumber(number: PhoneNumber): Boolean? {
+        return instance?.isPossibleNumber(number)
     }
 
     actual fun isPossibleNumberForType(
         number: com.mutualmobile.libphonenumber.PhoneNumber,
         type: PhoneNumberType
     ): Boolean? {
-        TODO("Not yet implemented")
+        return instance?.isPossibleNumberForType(number, type)
     }
 
-    actual fun isAlphaNumber(number: String): Boolean? {
-        TODO("Not yet implemented")
-    }
+    actual fun isAlphaNumber(number: String): Boolean? =
+        instance?.isAlphaNumber(number)
 
     actual fun isValidNumber(number: com.mutualmobile.libphonenumber.PhoneNumber): Boolean? {
-        TODO("Not yet implemented")
+        return instance?.isValidNumber(number)
     }
 
-    actual fun isValidNumberForRegion(
-        number: com.mutualmobile.libphonenumber.PhoneNumber,
-        countryCode: String
-    ): Boolean? {
-        TODO("Not yet implemented")
+    actual fun isValidNumberForRegion(number: PhoneNumber, countryCode: String): Boolean? {
+        return instance?.isValidNumberForRegion(number, countryCode)
     }
 
-    actual fun isNumberGeographical(number: com.mutualmobile.libphonenumber.PhoneNumber): Boolean? {
-        TODO("Not yet implemented")
+    actual fun isNumberGeographical(number: PhoneNumber): Boolean? {
+        return instance?.isNumberGeographical(number)
     }
 
     actual fun isNumberGeographical(
         phoneNumberType: PhoneNumberType,
         countryCallingCode: Int
     ): Boolean? {
-        TODO("Not yet implemented")
+        return instance?.isNumberGeographical(phoneNumberType, countryCallingCode)
     }
 
-    actual fun isNumberMatch(
-        firstNumber: CharSequence,
-        secondNumber: CharSequence
-    ): MatchType? {
-        TODO("Not yet implemented")
+    actual fun isNumberMatch(firstNumber: CharSequence, secondNumber: CharSequence): MatchType? {
+        return instance?.isNumberMatch(firstNumber, secondNumber)
     }
 
-    actual fun isNumberMatch(
-        firstNumber: com.mutualmobile.libphonenumber.PhoneNumber,
-        secondNumber: CharSequence
-    ): MatchType? {
-        TODO("Not yet implemented")
+    actual fun isNumberMatch(firstNumber: PhoneNumber, secondNumber: CharSequence): MatchType? {
+        return instance?.isNumberMatch(firstNumber, secondNumber)
     }
 
-    actual fun isNumberMatch(
-        firstNumber: com.mutualmobile.libphonenumber.PhoneNumber,
-        secondNumber: com.mutualmobile.libphonenumber.PhoneNumber
-    ): MatchType? {
-        TODO("Not yet implemented")
+    actual fun isNumberMatch(firstNumber: PhoneNumber, secondNumber: PhoneNumber): MatchType? {
+        return instance?.isNumberMatch(firstNumber, secondNumber)
     }
 
-    actual fun canBeInternationallyDialed(number: com.mutualmobile.libphonenumber.PhoneNumber): Boolean? {
-        TODO("Not yet implemented")
+    actual fun canBeInternationallyDialed(number: PhoneNumber): Boolean? {
+        return instance?.canBeInternationallyDialled(number)
     }
 
     actual fun getCountryCodeForRegion(regionCode: String): Int? {
-        TODO("Not yet implemented")
+        return instance?.getCountryCodeForRegion(regionCode)
     }
 
-    actual fun getPhoneNumberType(number: com.mutualmobile.libphonenumber.PhoneNumber): PhoneNumberType? {
-        TODO("Not yet implemented")
+    actual fun getPhoneNumberType(number: PhoneNumber): PhoneNumberType? {
+        return instance?.getNumberType(number)
     }
 
     actual fun isNANPACountry(regionCode: String): Boolean? {
-        TODO("Not yet implemented")
+        return instance?.isNANPACountry(regionCode)
     }
 
-    actual fun isPossibleNumberWithReason(number: com.mutualmobile.libphonenumber.PhoneNumber): ValidationResult? {
-        TODO("Not yet implemented")
+    actual fun isPossibleNumberWithReason(number: PhoneNumber): ValidationResult? {
+        return instance?.isPossibleNumberWithReason(number)
     }
-
-
 }
