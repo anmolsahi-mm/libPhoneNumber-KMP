@@ -1,7 +1,7 @@
 package com.mutualmobile.libphonenumber
 
 expect object PhoneUtil {
-    fun initialize(context: ApplicationContext)
+//    fun initialize(context: ApplicationContext?)
 
     fun isPossibleNumber(phoneNumber: String, countryCode: String): Boolean?
 
@@ -34,4 +34,5 @@ expect object PhoneUtil {
     fun isNANPACountry(regionCode: String): Boolean?
 
     fun isPossibleNumberWithReason(number: PhoneNumber): ValidationResult?
+
 }

@@ -2,4 +2,4 @@ package com.mutualmobile.libphonenumber
 
 import io.michaelrocks.libphonenumber.android.PhoneNumberUtil
 
-actual typealias PhoneNumberUtil = PhoneNumberUtil
+internal actual typealias PhoneNumberUtil = PhoneNumberUtil

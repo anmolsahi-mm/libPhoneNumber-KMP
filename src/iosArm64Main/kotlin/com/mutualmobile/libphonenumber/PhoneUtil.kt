@@ -1,18 +1,22 @@
 package com.mutualmobile.libphonenumber
 
 import cocoapods.libPhoneNumber_iOS.*
-import kotlin.native.concurrent.freeze
 
 
-@ThreadLocal
 actual object PhoneUtil {
+//
+//    val instance: NBPhoneNumberUtil by lazy {
+//        PhoneNumberUtil.sharedInstance()
+//    }
 
-    private var instance: NBPhoneNumberUtil? = null
-
-    actual fun initialize(context: ApplicationContext) {
-        instance = PhoneNumberUtil.sharedInstance()!!
-        instance.freeze()
+    val instance: NBPhoneNumberUtil? by lazy {
+        PhoneNumberUtil.sharedInstance()
     }
+
+//    actual fun initialize(context: ApplicationContext?) {
+//        instance = PhoneNumberUtil.sharedInstance()
+//        instance.freeze()
+//    }
 
     actual fun isPossibleNumber(phoneNumber: String, countryCode: String): Boolean? {
         return instance?.isPossibleNumberString(phoneNumber, countryCode, null)

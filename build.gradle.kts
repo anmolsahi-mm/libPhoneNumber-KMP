@@ -2,10 +2,11 @@ plugins {
     kotlin("multiplatform") version "1.7.10"
     kotlin("native.cocoapods") version "1.7.10"
     id("com.android.library")
+    id("maven-publish")
 }
 
-group = "me.anmolsinghsahi"
-version = "1.0-SNAPSHOT"
+group = "com.mutualmobile.libphonenumber"
+version = "1.0.0"
 
 repositories {
     google()

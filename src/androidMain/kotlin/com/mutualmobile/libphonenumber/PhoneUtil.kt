@@ -2,16 +2,20 @@ package com.mutualmobile.libphonenumber
 
 actual object PhoneUtil {
 
-    @Volatile
-    private var instance: PhoneNumberUtil? = null
-
-    actual fun initialize(context: ApplicationContext) {
-        synchronized(this) {
-            if (instance == null) {
-                instance = PhoneNumberUtil.createInstance(context)
-            }
-        }
+    private val instance: PhoneNumberUtil by lazy {
+        PhoneNumberUtil.createInstance(application)
     }
+//    actual fun initialize(context: ApplicationContext?) {
+//        if (context == null) {
+//            throw Exception("No context passed to PhoneUtil.initialize")
+//        } else {
+//            synchronized(this) {
+//                if (instance == null) {
+//                    instance = PhoneNumberUtil.createInstance(context)
+//                }
+//            }
+//        }
+//    }
 
     actual fun isPossibleNumber(phoneNumber: String, countryCode: String): Boolean? =
         instance?.isPossibleNumber(phoneNumber, countryCode)

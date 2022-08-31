@@ -4,16 +4,18 @@ import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber
 
 actual object PhoneUtil {
 
-    @Volatile
-    private var instance: PhoneNumberUtil? = null
-
-    actual fun initialize(context: ApplicationContext) {
-        synchronized(this) {
-            if (instance == null) {
-                instance = PhoneNumberUtil.getInstance()
-            }
-        }
+    //    @Volatile
+    val instance: PhoneNumberUtil by lazy {
+        PhoneNumberUtil.getInstance()
     }
+
+//    actual fun initialize(context: ApplicationContext?) {
+//        synchronized(this) {
+//            if (instance == null) {
+//                instance = PhoneNumberUtil.getInstance()
+//            }
+//        }
+//    }
 
     actual fun isPossibleNumber(phoneNumber: String, countryCode: String): Boolean? {
         return instance?.isPossibleNumber(phoneNumber, countryCode)
