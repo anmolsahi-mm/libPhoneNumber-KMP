@@ -40,7 +40,10 @@ kotlin {
     }
 
 
-    android()
+    android {
+        publishLibraryVariants("release", "debug")
+    }
+
     iosArm64 {
         binaries {
             framework {
